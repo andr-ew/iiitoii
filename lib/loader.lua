@@ -17,6 +17,7 @@ local script_path = lib_path..'scripts/'
 -- loader vars
 local a = {}
 local arc_key = function() end
+local iii_cleanup = function() end
 local script_names = { 'none' }
 local script_paths = { nil }
 
@@ -49,6 +50,7 @@ function loader.loadscript(path, name)
         
         a.delta = function(ring, delta) iii_env.arc(ring, delta/arc_res[ring]) end
         arc_key = iii_env.arc_key
+        iii_cleanup = iii_env.cleanup
 
         a.key = function(n, z) 
             if n==1 then params:set('iiitoii_arc_key', z) end
@@ -72,6 +74,8 @@ end
 loader.params_count = 2
 
 function loader.clearscript()
+    if iii_cleanup then iii_cleanup() end
+
     for i = 1,4 do
         arc_led_levels[i] = {}
         for ii = 1,64 do arc_led_levels[i][ii] = 0 end
@@ -86,9 +90,7 @@ function loader.clearscript()
     a:refresh()
 end
 
--- this is a class for any new things we want our former iii scripts to do, 
---   like talking to crow. those scripts *won't* have access to norns globals like crow,
---   but *will* have access to this new class
+-- utility class for talking to crow
 local iiitoii = {}
 do
     -- we make an abstraction around crow voltages so that iiitoii can manage delegation
@@ -112,7 +114,7 @@ do
 
     --with any other ii destination, we're not worried about this, so scripts can just 
     --  interact with the device directly, i.e.: iiitoii.ii.<device>.<do_thing()>
-    iiitoii.ii = crow.ii
+    -- iiitoii.ii = crow.ii
 end
 
 --iii -> norns api adapter layer. this is incomplete !
@@ -150,6 +152,7 @@ do
     e.coroutine = coroutine
 
     e.iiitoii = iiitoii
+    e.crow = crow
 
     e.metro = {}
     e.metro.new = function(callback, time_ms, count)

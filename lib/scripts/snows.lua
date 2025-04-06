@@ -64,5 +64,3 @@ function point(n,x)
 	arc_led_rel(n,(c+1)%64+1,x%16)
 	arc_led_rel(n,(c+63)%64+1,15-(x%16))
 end
-
-
