@@ -81,6 +81,9 @@ function loader.clearscript()
         m:stop()
         metro_instances[k] = nil
     end
+    
+    a:all(0)
+    a:refresh()
 end
 
 -- this is a class for any new things we want our former iii scripts to do, 
