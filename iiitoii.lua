@@ -1,4 +1,7 @@
 -- iiitoii
+--
+-- E1: select an iii script
+-- K2: mapped to arc button
 
 -- lib/loader handles running an iii-like script in the sripts/ dir
 local loader = include 'lib/loader'

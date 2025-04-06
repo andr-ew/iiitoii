@@ -5,7 +5,7 @@ local loader = {
 }
 
 --this table will become the new global environment for each script using some lua magic
---  this means that any time a global variable is envoked in a script in an iii script, 
+--  this means that any time a global variable is envoked in an iii script, 
 --  lua will look for it in this table
 local iii_env = {}
 
