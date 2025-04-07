@@ -37,6 +37,7 @@ end
 function redraw()
     screen.clear()
 
+    screen.aa(1)
     screen.level(4)
     screen.circle(10, 64-9, 4)
     screen.level(4 + (params:get('iiitoii_arc_key') * 8))
