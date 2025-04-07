@@ -6,7 +6,7 @@
 
 **required**
 
-- [norns](https://github.com/p3r7/awesome-monome-norns) (220321 or later)
+- [norns](https://github.com/p3r7/awesome-monome-norns)
 - [crow](https://monome.org/docs/crow/)
 - [grid](https://monome.org/docs/grid/) (128 or 256) or [arc](https://monome.org/docs/arc) (any 4 rings supported, 2025 edition recommended)
 
