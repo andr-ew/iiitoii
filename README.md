@@ -2,7 +2,7 @@
 
  a collection of [iii](https://monome.org/docs/iii/) community scripts ported to norns + crow. available as a standalone script and as a [mod](https://monome.org/docs/norns/mods/).
 
- ## hardware
+## hardware
 
 **required**
 
@@ -13,6 +13,10 @@
 **also supported**
 
 - ii devices
+
+## install
+
+install from the maiden catalog
 
  ## docs
  - **E1:** select script
@@ -48,5 +52,8 @@ top-level option to communicate with a second ii-connected crow, in place of the
 
 ! contributions welcome !
 
-a partial adapter for iii's new api has been created to ease conversion from iii. see `lib/loader`. this doesn't currently cover all functions, and may need to be expanded as iii is updated. 
+a partial adapter for iii's new api has been created to ease conversion from iii. see `lib/loader`. this doesn't currently cover all functions, and may need to be expanded as iii is updated (contributions welcome).
 
+when running as a mod global variables are also safe within the script files as they are run in a sandbox
+
+also note the new `cleanup` callback & `iiitoii` class for interacting with crow voltages
