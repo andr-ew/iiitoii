@@ -48,7 +48,10 @@ function loader.loadscript(path, name)
         local script = loadfile(script_path..path, nil, iii_env)
         script()
         
-        a.delta = function(ring, delta) iii_env.arc(ring, delta/arc_res[ring]) end
+        a.delta = function(ring, delta) 
+            iii_env.arc(ring, delta/arc_res[ring]) 
+            redraw()
+        end
         arc_key = iii_env.arc_key
         iii_cleanup = iii_env.cleanup
 
@@ -61,7 +64,10 @@ end
 function loader.add_params()
     params:add{
         id = 'iiitoii_arc_key', name = 'arc key', type = 'binary', behavior = 'momentary',
-        action = function(v) arc_key(v) end
+        action = function(v) 
+            arc_key(v) 
+            redraw()
+        end
     }
     params:add{
         id = 'iiitoii_script', name = 'script', type = 'option', options = script_names,
