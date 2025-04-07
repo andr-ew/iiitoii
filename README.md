@@ -12,11 +12,7 @@
 
 **also supported**
 
-- midi
-- crow
-- [just friends](https://www.whimsicalraps.com/products/just-friends) (synth mode)
-- anything supported by [nb](https://llllllll.co/t/n-b-et-al-v0-1/60374)
-
+- ii devices
 
  ## docs
  - **E1:** select script
