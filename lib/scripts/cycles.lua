@@ -38,9 +38,9 @@ modetext = {"normal","friction","shape"}
 function arc(n,d)
 	if mode==SPEED then
 		speed[n] = clamp(speed[n] + (d*tickrate/33),-64,64)
-	elseif mode==FRICTION then
-		c[n].shape = clamp(c[n].shape + d,1,2)
 	elseif mode==SHAPE then
+		c[n].shape = clamp(c[n].shape + d,1,2)
+	elseif mode==FRICTION then
 		c[n].f = clamp(c[n].f + d,0,15)
 	end
 end

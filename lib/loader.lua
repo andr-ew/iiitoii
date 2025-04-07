@@ -15,7 +15,7 @@ local lib_path = '/home/we/dust/code/iiitoii/lib/'
 local script_path = lib_path..'scripts/'
 
 -- loader vars
-local a = {}
+local a = false
 local arc_key = function() end
 local iii_cleanup = function() end
 local script_names = { 'none' }
@@ -27,8 +27,6 @@ local arc_res = { 1, 1, 1, 1 }
 local arc_led_levels = {}
 
 function loader.init()
-    a = arc.connect()
-
     local paths = util.scandir(script_path)
     for i,path in ipairs(paths) do
         script_paths[i + 1] = path
@@ -42,6 +40,8 @@ end
 
 function loader.loadscript(path, name)
     if path then
+        if not a then a = arc.connect() end
+
         loader.path = path
         loader.name = name
 
@@ -76,18 +76,20 @@ loader.params_count = 2
 function loader.clearscript()
     if iii_cleanup then iii_cleanup() end
 
+    for k,m in pairs(metro_instances) do
+        m:stop()
+        metro_instances[k] = nil
+    end
+        
     for i = 1,4 do
         arc_led_levels[i] = {}
         for ii = 1,64 do arc_led_levels[i][ii] = 0 end
     end
 
-    for k,m in pairs(metro_instances) do
-        m:stop()
-        metro_instances[k] = nil
+    if a then
+        a:all(0)
+        a:refresh()
     end
-    
-    a:all(0)
-    a:refresh()
 end
 
 -- utility class for talking to crow
