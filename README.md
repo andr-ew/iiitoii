@@ -1,6 +1,6 @@
 # iiitoii
 
- a collection of [iii](https://monome.org/docs/iii/) community scripts ported to norns + crow. available as a standalone script and as a [mod](https://monome.org/docs/norns/mods/)
+ a collection of [iii](https://monome.org/docs/iii/) community scripts ported to norns + crow. available as a standalone script and as a [mod](https://monome.org/docs/norns/mods/).
 
  ## hardware
 
