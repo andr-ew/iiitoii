@@ -2,6 +2,8 @@
 
  a collection of [iii](https://monome.org/docs/iii/) community scripts ported to norns + crow. available as a standalone script and as a [mod](https://monome.org/docs/norns/mods/).
 
+ currently in * beta *
+
 ## hardware
 
 **required**
@@ -46,7 +48,11 @@ based on the suggestion by tehn — snows, but note changes are sent to a sustai
 
 ## TODO
 
-top-level option to communicate with a second ii-connected crow, in place of the usb-connected crow (which would be freed up for use by a running script)
+- top-level option to communicate with a second ii-connected crow, in place of the usb-connected crow (which would be freed up for use by a running script)
+- maybe terminal print-outs from the iii script can show up on screen, like in diii
+- add grid functions to adapter layer
+- support running both grid & arc scripts at once, maybe device selection & using multiples of each device
+
 
 ## adding a script
 
